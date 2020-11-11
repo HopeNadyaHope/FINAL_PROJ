@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib version="2.1"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee">
+    <tlib-version>1.0</tlib-version>
+    <description>MyTag</description>
+    <short-name>MyTag</short-name>
+
+    <tag>
+        <name>MyTag</name>
+        <tag-class>by.epam.lobanok.controller.jsptag.MyTag</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+</taglib>
