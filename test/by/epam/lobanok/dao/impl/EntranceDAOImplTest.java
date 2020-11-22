@@ -89,7 +89,6 @@ public class EntranceDAOImplTest {
 		entrData = new EntranceData.Builder().withLogin("vanya").withPassword("99999").build();
 		
 		EntranceDAO entranceDAO = new EntranceDAOImpl();
-		User actualUser = null;
-		actualUser = entranceDAO.entrance(entrData); 
+		entranceDAO.entrance(entrData); 
 	}
 }

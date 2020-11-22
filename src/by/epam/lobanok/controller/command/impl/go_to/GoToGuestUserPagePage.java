@@ -15,7 +15,7 @@ import by.epam.lobanok.service.exception.ServiceException;
 public class GoToGuestUserPagePage implements Command {
 
 	private static final String USER_ID = "userID";
-	private static final String USER = "user";
+	private static final String PERSON = "person";
 	
 	/////////////////////////////////////////////////////////////////////////////////////////////
 	private static final String GUEST_USER_PAGE = "jsp/guestUserPage.jsp";
@@ -29,7 +29,7 @@ public class GoToGuestUserPagePage implements Command {
 		User user;
 		UserService userService = ServiceFactory.getInstance().getUserService();
 		user = userService.findUserByID(userID);
-		request.setAttribute(USER, user);
+		request.setAttribute(PERSON, user);
 		
 		request.getRequestDispatcher(GUEST_USER_PAGE).forward(request, response);	
 	}

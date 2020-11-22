@@ -40,13 +40,13 @@ public class UserDAOImpl implements UserDAO {
 	/**
      * SQL statement to find all teachers
      */
-	private static final String FIND_TEACHERS = "SELECT id,name,surname,age,sex,email FROM users WHERE users.roles_id=" +
+	private static final String FIND_TEACHERS = "SELECT users.id,name,surname,age,sex,email,photo_url FROM users WHERE users.roles_id=" +
 												"(SELECT id FROM roles WHERE role='преподаватель') ORDER BY surname,name";
 	
 	/**
      * SQL statement to find all students
      */
-	private static final String FIND_STUDENTS = "SELECT id,name,surname,age,sex,email FROM users WHERE users.roles_id=" +
+	private static final String FIND_STUDENTS = "SELECT users.id,name,surname,age,sex,email,photo_url FROM users WHERE users.roles_id=" +
 			"(SELECT id FROM roles WHERE role='студент') ORDER BY surname,name";
 	
 	/**
@@ -57,7 +57,7 @@ public class UserDAOImpl implements UserDAO {
 	/**
      * SQL statement to find user by ID
      */
-	private static final String FIND_USER_BY_ID = "SELECT users.id,name,surname,age,sex,role,email, photo_url FROM users " +
+	private static final String FIND_USER_BY_ID = "SELECT users.id,name,surname,age,sex,role,email,photo_url FROM users " +
 			"JOIN roles ON users.roles_id = roles.id WHERE users.id=?";
 	
 	/////////////////////////////////////////////////////////////////////////////////////////////
@@ -69,6 +69,9 @@ public class UserDAOImpl implements UserDAO {
 	private static final String SEX = "sex";
 	private static final String EMAIL = "email";
 	private static final String PHOTO_URL = "photo_url";
+	
+	private static final String STUDENT = "студент";
+	private static final String TEACHER = "преподаватель";
 
 
 	/////////////////////////////////////////////////////////////////////////////////////////////
@@ -129,7 +132,9 @@ public class UserDAOImpl implements UserDAO {
 						 .withSurname(resultSet.getString(SURNAME))
 						 .withAge(resultSet.getInt(AGE))
 						 .withSex(resultSet.getString(SEX))
+						 .withRole(TEACHER)
 						 .withEmail(resultSet.getString(EMAIL))
+						 .withPhotoURL(resultSet.getString(PHOTO_URL))
 						 .build();
 				
                 teachers.add(teacher);
@@ -174,6 +179,8 @@ public class UserDAOImpl implements UserDAO {
 						 .withAge(resultSet.getInt(AGE))
 						 .withSex(resultSet.getString(SEX))
 						 .withEmail(resultSet.getString(EMAIL))
+						 .withRole(STUDENT)
+						 .withPhotoURL(resultSet.getString(PHOTO_URL))
 						 .build();
 				
 				students.add(student);

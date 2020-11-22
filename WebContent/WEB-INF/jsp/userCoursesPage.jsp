@@ -29,7 +29,7 @@
 				<tr>
 					<td><c:out value="${runningCourse.course.courseName}" /></td>
 					<td><c:out value="${runningCourse.course.description}" /></td>
-					<td><c:out value="${runningCourse.teacher.name}  ${runningCourse.teacher.surname}" /></td>
+					<td><a href="Controller?command=go_to_guest_user_page&userID=${runningCourse.teacher.id}"><c:out value="${runningCourse.teacher.name}  ${runningCourse.teacher.surname}" /></a></td>
 					<td><c:out value="${runningCourse.passing}" /></td>
 					<td>
 						

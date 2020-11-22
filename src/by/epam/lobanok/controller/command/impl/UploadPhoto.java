@@ -27,7 +27,8 @@ public class UploadPhoto implements Command {
 	private static final String FILE = "file";
 	private static final String USER = "user";
 	
-	private static final String USER_PHOTO_PATH = "images/userPhoto/";
+	private static final String PROJECT_PATH ="D:\\Тренинг\\Лабы\\ПРОЕКТ\\WELCOME\\WebProj\\WebContent\\";
+	private static final String USER_PHOTO_PATH = "images\\userPhoto\\";
 	private static final String JPG = ".jpg";
 	
 	private static final String GO_TO_USER_PAGE = "Controller?command=go_to_user_page";
@@ -55,12 +56,13 @@ public class UploadPhoto implements Command {
 			String photoURL;
 			photoURL = USER_PHOTO_PATH + userID + JPG;
 			
-			File photoFile = new File(photoURL);
-
+			String url = PROJECT_PATH + photoURL;
+			
+			File photoFile = new File(url);
 			if (!photoFile.exists()) {
 				photoFile.createNewFile();
 			}
-
+			
 			outStream = new FileOutputStream(photoFile);
 			outStream.write(buffer);			
 			outStream.close();

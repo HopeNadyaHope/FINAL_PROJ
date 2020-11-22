@@ -42,7 +42,7 @@
 				<td><c:out value="${result.runningCourse.start} - ${result.runningCourse.end} " /></td>
 				<td><c:out value="${result.runningCourse.passing}" /></td>
 							
-				<td><c:out value="${result.runningCourse.teacher.name} ${result.runningCourse.teacher.surname}" /></td>
+				<td><a href="Controller?command=go_to_guest_user_page&userID=${result.runningCourse.teacher.id}"><c:out value="${result.runningCourse.teacher.name} ${result.runningCourse.teacher.surname}" /></a></td>
 				
 				<td><c:out value="${result.result.rating}" /></td>
 				<td><c:out value="${result.result.review}" /></td>

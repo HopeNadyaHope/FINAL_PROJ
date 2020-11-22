@@ -30,7 +30,7 @@
 
 	<c:forEach items="${requestScope.courseParticipants}" var="courseParticipants">  
 		<tr>
-			<td><c:out value="${courseParticipants.student.name} ${courseParticipants.student.surname}" /></td>
+			<td><a href="Controller?command=go_to_guest_user_page&userID=${courseParticipants.student.id}"><c:out value="${courseParticipants.student.name} ${courseParticipants.student.surname}" /></a></td>
 
 			<c:choose>
 				<c:when test="${courseParticipants.result.rating ne '0'}">

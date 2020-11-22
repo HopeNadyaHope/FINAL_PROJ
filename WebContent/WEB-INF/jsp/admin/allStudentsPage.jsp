@@ -24,7 +24,7 @@
          </tr>
 		<c:forEach items="${requestScope.students}" var="student">
 		<tr>
-			<td><c:out value="${student.name} ${student.surname}" /></td>
+			<td><a href="Controller?command=go_to_guest_user_page&userID=${student.id}"><c:out value="${student.name} ${student.surname}" /></a></td>
 			<td><c:out value="${student.age}" /></td>
 			<td><c:out value="${student.sex}" /></td>
 			<td><c:out value="${student.email}" /></td>
